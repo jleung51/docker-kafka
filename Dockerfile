@@ -11,4 +11,4 @@ ENV KAFKA=kafka_${SCALA_VERSION}-${KAFKA_VERSION}
 RUN wget -q http://apache.mirror.globo.tech/kafka/${KAFKA_VERSION}/${KAFKA}.tgz -O /tmp/${KAFKA}.tgz
 RUN tar xfz /tmp/${KAFKA}.tgz -C /opt
 
-CMD sh
+CMD bash
