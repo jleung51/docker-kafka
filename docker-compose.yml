@@ -1,0 +1,21 @@
+version: '2.1'
+services:
+  zookeeper:
+    build:
+      context: ./zookeeper
+    ports:
+      - "2181:2181"
+  kafka:
+    build:
+      context: ./kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    volumes:
+      - /kafka-logs
+  consumer:
+    build:
+      context: ./consumer
+    depends_on:
+      - kafka
